@@ -11,11 +11,13 @@
         },
         "loliconAPI_key": {
             "description": "Your loliconAPI key",
-            "value": "null"
+            "value": "",
+            "require":false
         },
         "fluxpointAPI_key": {
             "description": "Your fluxpointAPI key",
-            "value": "null"
+            "value": ""
+            "require":false
         },
         "prefix": {
             "description": "custom prefix",

@@ -69,8 +69,12 @@ class 色图相关(commands.Cog):
             r18 = 2
         else:
             r18 = 0
+        try:
+            apikey = os.environ["loliconAPI_key"]
+        except:
+            apikey = ''
         params = {
-            "apikey": os.environ["loliconAPI_key"],
+            "apikey": apikey,
             "r18": r18,
             "size1200": False,
             "num": num,
@@ -103,8 +107,9 @@ class 色图相关(commands.Cog):
         以下是可选别名：
         ['色图', 'nsfw']['随机','random','anime']['碧蓝','azurlane']['nekopara']['壁纸','wallpaper']
         '''
-        headers = {'Authorization': os.environ['fluxpointAPI_key']}
-        if headers['Authorization'] == 'null':
+        try:
+            headers = {'Authorization': os.environ['fluxpointAPI_key']}
+        except:
             await ctx.send('无APIkey')
             return
         url = 'https://gallery.fluxpoint.dev/api'
