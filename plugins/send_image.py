@@ -104,7 +104,7 @@ class 色图相关(commands.Cog):
         ['色图', 'nsfw']['随机','random','anime']['碧蓝','azurlane']['nekopara']['壁纸','wallpaper']
         '''
         headers = {'Authorization': os.environ['fluxpointAPI_key']}
-        if headers['Authorization'] == '':
+        if headers['Authorization'] == 'null':
             await ctx.send('无APIkey')
             return
         url = 'https://gallery.fluxpoint.dev/api'

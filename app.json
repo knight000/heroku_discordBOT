@@ -2,7 +2,7 @@
     "name": "Start on Heroku: Discordbot",
     "description": "A barebones Python app, which can easily be deployed to Heroku.",
     "image": "heroku/python",
-    "repository": "https://github.com/Norup2020/heroku_discordPy/",
+    "repository": "https://github.com/knight000/heroku_discordBOT",
     "keywords": ["python", "discord"],
     "env": {
         "discord_token": {
@@ -11,11 +11,11 @@
         },
         "loliconAPI_key": {
             "description": "Your loliconAPI key",
-            "value": ""
+            "value": "null"
         },
         "fluxpointAPI_key": {
             "description": "Your fluxpointAPI key",
-            "value": ""
+            "value": "null"
         },
         "prefix": {
             "description": "custom prefix",
