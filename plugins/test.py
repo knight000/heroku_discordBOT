@@ -5,11 +5,20 @@ from random import randint
 
 class test_command(commands.Cog):
     '''
-    测试中的指令或者正在测试的指令
+    测试中的指令或者正在测试的指令，其实是懒得分类的指令
     '''
+
+    @commands.command(name="github", aliases=('Github', 'GITHUB', '源码'))
+    async def github(self, ctx):
+        '''
+        查看机器人的源码
+        https://github.com/knight000/heroku_discordBOT
+        '''
+        await ctx.send('https://github.com/knight000/heroku_discordBOT')
+
     @commands.command(name="math", aliases=("计算", "eval",), help='计算模块，其实就是个eval')
-    async def math(self, ctx, a):
-        await ctx.send(eval(a))
+    async def math(self, ctx, *args):
+        await ctx.send(eval(''.join(args)))
 
     @commands.command(name="ra", help='跑团检定指令，格式是[技能名][数值]')
     async def ra(self, ctx, skill, value=0):
