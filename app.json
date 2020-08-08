@@ -12,12 +12,12 @@
         "loliconAPI_key": {
             "description": "Your loliconAPI key",
             "value": "",
-            "require":false
+            "required": false
         },
         "fluxpointAPI_key": {
             "description": "Your fluxpointAPI key",
             "value": "",
-            "require":false
+            "required": false
         },
         "prefix": {
             "description": "custom prefix",
