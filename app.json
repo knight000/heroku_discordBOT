@@ -16,7 +16,7 @@
         },
         "fluxpointAPI_key": {
             "description": "Your fluxpointAPI key",
-            "value": ""
+            "value": "",
             "require":false
         },
         "prefix": {
