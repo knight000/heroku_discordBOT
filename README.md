@@ -9,17 +9,18 @@
 
 目前的功能为
 
-> test_command:
->   math      计算模块，其实就是个eval
->   ra        跑团检定指令，格式是[技能名][数值]
+> math      计算模块，其实就是个eval
 
-> No Category:
->   ddc       原则上是 ddc [数字] [主播名]
->   help      Shows this message
+> ra        跑团检定指令，格式是[技能名][数值]
 
-> 色图相关:
->   fluxpoint 使用了[fluxpoint.dev](https://fluxpoint.dev/api/apply)的API
->   pixiv     P站图片,支持关键词[loliconAPI](https://api.lolicon.app/#/setu)
->   rand_pic  随机P站图片
+> ddc       原则上是 ddc [数字] [主播名]，查询虚拟主播
+
+> help      查看自动生成的帮助
+
+> fluxpoint 使用了[fluxpoint.dev](https://fluxpoint.dev/api/apply)的API
+
+> pixiv     P站图片,支持关键词
+
+> rand_pic  随机P站图片
 
 请**节制**![img](https://api.lolicon.app/assets/img/jz.png)，冲太多对身体不好
