@@ -27,7 +27,6 @@ class 色图相关(commands.Cog):
         格式是[数量][SAFE|R18|ALL]
         但只能出全年龄
         '''
-        image_type = ".tmp"
         if count > 5:
             count = 5
         elif count < 1:
@@ -45,7 +44,7 @@ class 色图相关(commands.Cog):
         web = requests.get(
             'http://193.112.67.15/setuapi/discovery', params=params).json()
         for i in range(0, count):
-            url = 'https://search.pstatic.net/common?type=origin&src='+web[str(i)]['url_big'].replace("pximg.net", "pixiv.cat")
+            url = web[str(i)]['url_big'].replace("pximg.net", "pixiv.cat")
             embed_box = discord.Embed(title=web[str(i)]['title'], description=OutputTags(
                 web[str(i)]['tags']), url=web[str(i)]['meta']['canonical'])
             embed_box.set_image(url=url)
@@ -53,12 +52,34 @@ class 色图相关(commands.Cog):
         return
 
     @commands.command(name='pixiv', aliases=('P站图片',))
-    async def pixiv(self, ctx, num=1, r18='', keyword=''):
+    async def pixiv(self, ctx, *args):
         '''
         P站图片,支持关键词
         格式是[数量][*|R18|ALL][关键词]
         有时候全年龄会出有R18标签的作品
         '''
+        if len(args) == 0:
+            num = 1
+            r18 = ''
+            keyword = ''
+        elif len(args) == 1:
+            num = 1
+            r18 = ''
+            keyword = args[0]
+        elif len(args) == 2:
+            if type(eval(args[0])) == int:
+                num = args[0]
+                r18 = ''
+            else:
+                num = 1
+                r18 = args[0]
+            keyword = args[1]
+        else:
+            num = args[0]
+            r18 = args[1]
+            del args[1]
+            del args[0]
+            keyword = ''.join(args)
         if num > 5:
             num = 5
         elif num < 1:
@@ -80,18 +101,13 @@ class 色图相关(commands.Cog):
             "num": num,
             "keyword": keyword
         }
-        image_type = ".tmp"
         web = requests.get('https://api.lolicon.app/setu/',
                            params=params).json()
         if web['code'] != 0:
             await ctx.send(web['msg'])
         else:
             for i in range(0, num):
-                url = 'https://search.pstatic.net/common?type=origin&src='+web['data'][i]['url']
-                if url.find(".jpg") != -1:
-                    image_type = ".jpg"
-                elif url.find(".png") != -1:
-                    image_type = ".png"
+                url = web['data'][i]['url']
                 embed_box = discord.Embed(title=f"{web['data'][i]['title']}-{web['data'][i]['author']}", description=OutputTags(
                     web['data'][i]['tags']), url=f"https://www.pixiv.net/artworks/{str(web['data'][i]['pid'])}")
                 embed_box.set_image(url=url)
