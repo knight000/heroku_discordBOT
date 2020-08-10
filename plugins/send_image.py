@@ -58,28 +58,28 @@ class 色图相关(commands.Cog):
         格式是[数量][*|R18|ALL][关键词]
         有时候全年龄会出有R18标签的作品
         '''
+        num=1
+        r18=''
+        keyword=''
         if len(args) == 0:
-            num = 1
-            r18 = ''
-            keyword = ''
+            pass
         elif len(args) == 1:
-            num = 1
-            r18 = ''
-            keyword = args[0]
-        elif len(args) == 2:
-            if type(eval(args[0])) == int:
+            if args[0] in ['r18','R18','ALL','all']:
+                r18 = args[0]
+            elif type(args[0]) == int:
                 num = args[0]
-                r18 = ''
             else:
-                num = 1
+                keyword = args[0]
+        elif len(args) == 2:
+            if type(args[0]) == int:
+                num = args[0]
+            else:
                 r18 = args[0]
             keyword = args[1]
         else:
             num = args[0]
             r18 = args[1]
-            del args[1]
-            del args[0]
-            keyword = ''.join(args)
+            keyword = args[2]
         if num > 5:
             num = 5
         elif num < 1:
