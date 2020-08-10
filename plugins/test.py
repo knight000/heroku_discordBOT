@@ -16,6 +16,13 @@ class test_command(commands.Cog):
         '''
         await ctx.send('https://github.com/knight000/heroku_discordBOT')
 
+    @commands.command(name="type", help='输入的数据类型')
+    async def math(self, ctx, *args):
+        msg = ''
+        for i in args:
+            msg += f'{i} TYPE {type(i)}\n'
+        await ctx.send(msg)
+
     @commands.command(name="math", aliases=("计算", "eval",), help='计算模块，其实就是个eval')
     async def math(self, ctx, *args):
         await ctx.send(eval(''.join(args)))

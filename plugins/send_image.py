@@ -66,20 +66,27 @@ class 色图相关(commands.Cog):
         elif len(args) == 1:
             if args[0] in ['r18', 'R18', 'ALL', 'all']:
                 r18 = args[0]
-            elif type(args[0]) == int:
-                num = args[0]
             else:
-                keyword = args[0]
+                try:
+                    type(eval(args[0]))
+                    num = eval(args[0])
+                except:
+                    keyword = args[0]
         elif len(args) == 2:
-            if type(args[0]) == int:
-                num = args[0]
-            else:
+            try:
+                num = eval(args[0])
+            except:
                 r18 = args[0]
             keyword = args[1]
         else:
-            num = args[0]
-            r18 = args[1]
-            keyword = args[2]
+            try:
+                type(eval(args[0]))
+                num = eval(args[0])
+                r18 = args[1]
+                keyword = args[2]
+            except:
+                r18 = args[1]
+                keyword = args[2]
         if num > 5:
             num = 5
         elif num < 1:
