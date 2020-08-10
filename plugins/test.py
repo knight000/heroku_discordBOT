@@ -16,8 +16,8 @@ class test_command(commands.Cog):
         '''
         await ctx.send('https://github.com/knight000/heroku_discordBOT')
 
-    @commands.command(name="type", help='输入的数据类型')
-    async def math(self, ctx, *args):
+    @commands.command(name="Type", aliases=('type'), help='输入的数据类型')
+    async def Type(self, ctx, *args):
         msg = ''
         for i in args:
             msg += f'{i} TYPE {type(i)}\n'
