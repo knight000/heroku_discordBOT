@@ -45,7 +45,7 @@ class 色图相关(commands.Cog):
         web = requests.get(
             'http://193.112.67.15/setuapi/discovery', params=params).json()
         for i in range(0, count):
-            url = web[str(i)]['url_big'].replace("pximg.net", "pixiv.cat")
+            url = 'https://search.pstatic.net/common?type=origin&src='+web[str(i)]['url_big'].replace("pximg.net", "pixiv.cat")
             embed_box = discord.Embed(title=web[str(i)]['title'], description=OutputTags(
                 web[str(i)]['tags']), url=web[str(i)]['meta']['canonical'])
             embed_box.set_image(url=url)
@@ -87,7 +87,7 @@ class 色图相关(commands.Cog):
             await ctx.send(web['msg'])
         else:
             for i in range(0, num):
-                url = web['data'][i]['url']
+                url = 'https://search.pstatic.net/common?type=origin&src='+web['data'][i]['url']
                 if url.find(".jpg") != -1:
                     image_type = ".jpg"
                 elif url.find(".png") != -1:
