@@ -58,13 +58,13 @@ class 色图相关(commands.Cog):
         格式是[数量][*|R18|ALL][关键词]
         有时候全年龄会出有R18标签的作品
         '''
-        num=1
-        r18=''
-        keyword=''
+        num = 1
+        r18 = ''
+        keyword = ''
         if len(args) == 0:
             pass
         elif len(args) == 1:
-            if args[0] in ['r18','R18','ALL','all']:
+            if args[0] in ['r18', 'R18', 'ALL', 'all']:
                 r18 = args[0]
             elif type(args[0]) == int:
                 num = args[0]
